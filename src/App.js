@@ -6,6 +6,7 @@ import ErrorWork from './Components/ErrorWork/ErrorWork';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import Register from './Components/Login/Register';
 import Navbar from './Components/Navbar/Navbar';
 import Products from './Components/Products/Products';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/product' element={<Products></Products>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<ErrorWork></ErrorWork>}></Route>
       </Routes>
       <Footer></Footer>
