@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Products from '../Products/Products';
 import SectionOne from '../SectionOne/SectionOne';
 import SectionTow from '../SectionTow/SectionTow';
+import Summery from '../Summery/Summery';
 
 
 
@@ -13,6 +14,7 @@ const Home = () => {
             <Products></Products>
             <SectionOne></SectionOne>
             <SectionTow></SectionTow>
+            <Summery></Summery>
         </div>
     );
 };

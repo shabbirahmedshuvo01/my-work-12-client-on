@@ -57,13 +57,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" className="input input-bordered" placeholder='Email' {...register("email")} />
+                            <input type="text" className="input input-bordered" placeholder='Email' {...register("email")} required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" className="input input-bordered" placeholder='Password' {...register("password")} />
+                            <input type="password" className="input input-bordered" placeholder='Password' {...register("password")} required />
                             <label className="label">
                                 <p><small>New to Doctors Portal? <Link className='text-primary' to="/register">Create new account</Link></small></p>
                             </label>
