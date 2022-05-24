@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
+import Loading from '../Loading/Loading'
 
 const Register = () => {
 
@@ -15,8 +16,26 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+    const [signInWithGoogle, userG, loadingOne, errorOne] = useSignInWithGoogle(auth);
+
+    let errorElement;
+
+
+
+    if (user || userG) {
+        navigate('/');
+    }
+
+    if (loading || updating || loadingOne) {
+        return <Loading></Loading>
+    }
+
+    if (error || updateError || errorOne || errors) {
+        errorElement = <p className='text-red-500'><small>{error?.message || errorOne?.message || updateError?.message || errors.message}</small></p>
+    }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
@@ -61,12 +80,17 @@ const Register = () => {
                                 <p><small>Already have an account? <Link className='text-primary' to="/login">Please Login</Link></small></p>
                             </label>
                         </div>
+
+
+                        {errorElement}
+
+
                         <div className="form-control mt-6">
                             <input className='btn' type="submit" value="SignUp" />
                         </div>
                     </form>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline">CONTINUE WITH GOOGLE</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">CONTINUE WITH GOOGLE</button>
                 </div>
             </div>
         </div>

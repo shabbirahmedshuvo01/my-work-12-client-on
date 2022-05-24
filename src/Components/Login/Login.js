@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -17,11 +18,27 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [signInWithGoogle, userG, loadingOne, errorOne] = useSignInWithGoogle(auth);
 
-    if (user) {
+
+    let errorElement;
+
+
+    if (user || userG) {
         navigate("/")
         console.log(user)
     }
+
+    if (loading || loadingOne) {
+        return <Loading></Loading>
+    }
+
+    if (error || errorOne) {
+        errorElement = <p className='text-red-500'><small>{error?.message || errorOne?.message}</small></p>
+    }
+
+
+
 
 
     const onSubmit = data => {
@@ -51,13 +68,16 @@ const Login = () => {
                                 <p><small>New to Doctors Portal? <Link className='text-primary' to="/register">Create new account</Link></small></p>
                             </label>
                         </div>
+
+                        {errorElement}
+
                         <div className="form-control mt-6">
                             <input className='btn' type="submit" value="Login" />
                         </div>
                     </form>
 
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline">CONTINUE WITH GOOGLE</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">CONTINUE WITH GOOGLE</button>
                 </div>
             </div>
         </div>
