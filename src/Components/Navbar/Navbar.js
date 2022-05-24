@@ -17,7 +17,7 @@ const Navbar = () => {
     const itemsSite = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
-        <li><Link to="/page">Page</Link></li>
+        <li><Link to="/orders">Orders</Link></li>
         <li><Link to="/product">Product</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
         <li>{user ?
