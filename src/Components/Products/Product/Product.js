@@ -12,7 +12,7 @@ const Product = ({ tool }) => {
                 <p>{description}</p>
                 <div className="flex justify-evenly">
                     <p className='mt-3'>Status : <span className='text-green-400'>In Stock</span></p>
-                    <button className="btn mt-2">Buy Now</button>
+                    <button className="btn mt-2">Book Now</button>
                 </div>
             </div>
         </div>
