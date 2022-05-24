@@ -5,6 +5,7 @@
         "price": 120,
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMyaI3RuCJsOlG4xBh-2Y5o0-rjgA0ehCnA&usqp=CAU",
         "quantity": 5000,
+        "minimum": 100,
         "description": "Bolt. works is a brand new way of finding and applying for construction work and work force. For employees, it provides easy registration,"
     },
     {
@@ -13,6 +14,7 @@
         "price": 150,
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGm89KIcFzQzYT9yq0hL_yIfh0yngbfsQ1xQ&usqp=CAU",
         "quantity": 1500,
+        "minimum": 100,
         "description": "A typical simple screwdriver has a handle and a shaft, ending in a tip the user puts into the screw head before turning the handle."
     },
     {
@@ -21,6 +23,7 @@
         "price": 200,
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRU4lvVpHamcd9ZNx6GjjdVLT7JSFSP_rYfA&usqp=CAU",
         "quantity": 2000,
+        "minimum": 100,
         "description": " a wrench consists of a stout lever with a notch at one or both ends for gripping the bolt or nut."
     },
     {
@@ -29,6 +32,7 @@
         "price": 500,
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFZpNnVsy1swcCWsO1fTnYV4ZksEYFwQsA2Q&usqp=CAU",
         "quantity": 500,
+        "minimum": 100,
         "description": "Professional Electric Drill Machine 13mm 1500W.So light and handy,so usefull products"
     },
     {
@@ -37,6 +41,7 @@
         "price": 260,
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-cyiG2HAde1wY3SkY1GwWrMVdvq1X3JjUJw&usqp=CAU",
         "quantity": 300,
+        "minimum": 100,
         "description": "High Carbon Steel 1000G Tactical Camping Axe Splitting Maul Survival Hatchet with Fiberglass Handle"
     },
     {
@@ -45,6 +50,7 @@
         "price": 90,
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-cyiG2HAde1wY3SkY1GwWrMVdvq1X3JjUJw&usqp=CAU",
         "quantity": 300,
+        "minimum": 100,
         "description": "High Carbon Steel 1000G Tactical Camping Axe Splitting Maul Survival Hatchet with Fiberglass Handle"
     }
 ]
