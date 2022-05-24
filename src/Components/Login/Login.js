@@ -1,7 +1,9 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const { register, handleSubmit } = useForm();
     return (
 
         <div className='flex h-screen justify-center items-center'>
@@ -13,13 +15,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
+                            <input className="input input-bordered" placeholder='Email' {...register("email")} />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input className="input input-bordered" placeholder='Password' {...register("password")} />
                             <label className="label">
                                 <p><small>New to Doctors Portal? <Link className='text-primary' to="/register">Create new account</Link></small></p>
                             </label>
