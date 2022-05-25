@@ -26,7 +26,9 @@ function App() {
         <Route path='/product' element={<RequireAuth><Products></Products></RequireAuth>}></Route>
         <Route path='/tools/:id' element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+          <Route index element></Route>
+        </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<ErrorWork></ErrorWork>}></Route>
