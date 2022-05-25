@@ -1,7 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ tool }) => {
-    const { name, price, img, quantity, minimum, description } = tool;
+    const { _id, name, price, img, quantity, minimum, description } = tool;
+
+    const navigate = useNavigate();
+    const navigateToToolsDetail = id => {
+        navigate(`tools/${id}`);
+    }
+
+
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img src={img} alt="" /></figure>
@@ -13,7 +21,7 @@ const Product = ({ tool }) => {
                 <p>{description}</p>
                 <div className="flex justify-evenly">
                     <p className='mt-3'>Status : <span className='text-green-400'>In Stock</span></p>
-                    <button className="btn mt-2">Book Now</button>
+                    <button onClick={() => navigateToToolsDetail(_id)} className="btn mt-2">Book Now</button>
                 </div>
             </div>
         </div>
