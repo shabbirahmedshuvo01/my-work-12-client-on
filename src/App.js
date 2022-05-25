@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './Components/About/About';
 import Blogs from './Components/Blogs/Blogs';
+import Dashboard from './Components/Dashboard/Dashboard';
 import ErrorWork from './Components/ErrorWork/ErrorWork';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
@@ -23,6 +24,7 @@ function App() {
         <Route path='/product' element={<RequireAuth><Products></Products></RequireAuth>}></Route>
         <Route path='/tools/:id' element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<ErrorWork></ErrorWork>}></Route>
