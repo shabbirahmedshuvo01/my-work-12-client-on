@@ -10,7 +10,7 @@ const Orders = () => {
     const { id } = useParams();
     const [perTool, setPerTool] = useState({});
     const [numberOne, setNumberOne] = useState(0);
-    let quantityElemnt;
+    let quantityElemnt = perTool.quantity;
     let errorElement;
 
     let wantedRef = useRef(0);
@@ -34,6 +34,9 @@ const Orders = () => {
 
     let updatedQuantity = parseFloat(perTool.quantity) - parseFloat(numberOne);
 
+    var today = new Date(),
+        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
 
     const handleOrder = event => {
         event.preventDefault();
@@ -43,7 +46,8 @@ const Orders = () => {
             toolName: perTool.name,
             toolQuantity: numberOne,
             toolBuyer: user.email,
-            buyerName: user.displayName
+            buyerName: user.displayName,
+            date: date
         }
 
         fetch('http://localhost:5000/order', {
@@ -56,6 +60,12 @@ const Orders = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.success) {
+                    toast.success('Order will placed on your company')
+                }
+                else {
+                    toast.error('You have alredy this product ordered')
+                }
             })
     }
 
@@ -80,8 +90,8 @@ const Orders = () => {
                     <h2 className='text-xl'>Email: {user.email}</h2>
                     <br />
                     <h2 className='text-xl font-bold'>Your selected product : {perTool.name}</h2>
-                    <h2 className='font-bold'>In Stock : {perTool.quantity}</h2>
-                    <h2 className='font-bold'>Order Quantity : {updatedQuantity}</h2>
+                    <h2 className='font-bold'>In Stock : {updatedQuantity}</h2>
+                    <h2 className='font-bold'>Order Quantity : {numberOne}</h2>
                     <h5 className='font-bold'>Per Tools $: {perTool.price}</h5>
                     <h6 className='font-bold'>Status: <span className='text-success'>In Stock</span></h6>
                     <p>{perTool.description}</p>
