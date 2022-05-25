@@ -36,8 +36,8 @@ const Orders = () => {
                 <h6>Status: <span className='text-success'>In Stock</span></h6>
                 <h6>Supplier: {perTool.supply}</h6>
                 <p>{perTool.description}</p>
-                <input className='' type="number" name='setQuantity' ref={wantedRef} placeholder='Wanted' />
-                <button onClick={() => setNew()} className='btn btn-primary'>Now</button>
+                <input className='input input-bordered' type="number" ref={wantedRef} placeholder='Update Quantity' />
+                <button onClick={() => setNew()} className='btn btn-primary'>Update</button>
                 <div className='text-center'>
                     <Link to='/'>
                         <button className='btn btn-primary'>Proceed Stocking</button>
