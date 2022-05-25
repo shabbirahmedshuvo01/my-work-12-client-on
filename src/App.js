@@ -14,6 +14,8 @@ import Orders from './Components/Orders/Orders';
 import Products from './Components/Products/Products';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MyOrder from './Components/Dashboard/MyOrder';
+import Myreview from './Components/Dashboard/Myreview';
 
 
 function App() {
@@ -27,7 +29,8 @@ function App() {
         <Route path='/tools/:id' element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-          <Route index element></Route>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route path='review' element={<Myreview></Myreview>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
