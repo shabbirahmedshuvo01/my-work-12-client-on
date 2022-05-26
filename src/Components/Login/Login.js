@@ -31,7 +31,6 @@ const Login = () => {
 
 
     if (token) {
-        console.log(user);
         navigate(from, { replace: true });
     }
 

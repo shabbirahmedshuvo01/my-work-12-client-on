@@ -23,7 +23,7 @@ const Orders = () => {
     }
 
     useEffect(() => {
-        const url = `https://lit-ocean-00679.herokuapp.com/tools/${id}`
+        const url = `https://my-final-project115.herokuapp.com/tools/${id}`
 
         fetch(url)
             .then(res => res.json())
@@ -51,7 +51,7 @@ const Orders = () => {
             price: perTool.price * numberOne,
         }
 
-        fetch('https://lit-ocean-00679.herokuapp.com/order', {
+        fetch('https://my-final-project115.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

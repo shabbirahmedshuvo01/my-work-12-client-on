@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import Userrow from './Userrow';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://lit-ocean-00679.herokuapp.com/users').then(res => res.json()));
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://my-final-project115.herokuapp.com/users').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>

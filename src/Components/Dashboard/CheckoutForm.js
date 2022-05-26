@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
 
     useEffect(() => {
 
-        fetch(`https://lit-ocean-00679.herokuapp.com/create-payment-intent`, {
+        fetch(`https://my-final-project115.herokuapp.com/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
