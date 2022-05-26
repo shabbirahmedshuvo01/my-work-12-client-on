@@ -19,6 +19,7 @@ import Myreview from './Components/Dashboard/Myreview';
 import MyProfile from './Components/Dashboard/MyProfile';
 import Users from './Components/Dashboard/Users';
 import Payment from './Components/Dashboard/Payment';
+import MyProfileWork from './Components/MyProfile/MyProfileWork';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/Profile' element={<MyProfileWork></MyProfileWork>}></Route>
         <Route path='/product' element={<RequireAuth><Products></Products></RequireAuth>}></Route>
         <Route path='/tools/:id' element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
