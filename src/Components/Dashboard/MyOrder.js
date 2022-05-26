@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?toolBuyer=${user.email}`, {
+            fetch(`https://lit-ocean-00679.herokuapp.com/order?toolBuyer=${user.email}`, {
                 method: "GET",
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const MyOrder = () => {
     const handleDelete = toolId => {
         const procced = window.confirm('are you sure ?')
         if (procced) {
-            const url = `http://localhost:5000/order/:${toolId}`;
+            const url = `https://lit-ocean-00679.herokuapp.com/order/:${toolId}`;
             fetch(url, {
                 method: "DELETE"
             })
