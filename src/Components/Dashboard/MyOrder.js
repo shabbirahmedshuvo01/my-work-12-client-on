@@ -7,13 +7,38 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [user, loading, error] = useAuthState(auth);
 
+
+
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?toolBuyer=${user.email}`)
+            fetch(`http://localhost:5000/order?toolBuyer=${user.email}`, {
+                method: "GET",
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
                 .then(res => res.json())
-                .then(data => setOrders(data));
+                .then(data => { setOrders(data) });
         }
     }, [user])
+
+
+    const handleDelete = toolId => {
+        const procced = window.confirm('are you sure ?')
+        if (procced) {
+            const url = `http://localhost:5000/order/:${toolId}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = orders.filter(now => now.toolId !== toolId);
+                    setOrders(remaining)
+                })
+        }
+    }
+
 
     return (
         <div>
@@ -27,6 +52,7 @@ const MyOrder = () => {
                             <th>Name</th>
                             <th>date</th>
                             <th>Item</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +62,7 @@ const MyOrder = () => {
                                 <td>{order.buyerName}</td>
                                 <td>{order.date}</td>
                                 <td>{order.toolName}</td>
+                                <td><button onClick={() => handleDelete(order.toolId)} className='btn btn-xs bg-red-500'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>

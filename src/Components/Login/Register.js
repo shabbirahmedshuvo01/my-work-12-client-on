@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import Loading from '../Loading/Loading'
+import useToken from '../../hooks/useUser';
 
 const Register = () => {
 
@@ -21,11 +22,13 @@ const Register = () => {
     const navigate = useNavigate();
     const [signInWithGoogle, userG, loadingOne, errorOne] = useSignInWithGoogle(auth);
 
+    const [token] = useToken(user || userG);
+
     let errorElement;
 
 
 
-    if (user || userG) {
+    if (token) {
         navigate('/');
     }
 
