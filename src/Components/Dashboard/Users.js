@@ -1,9 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
+import Userrow from './Userrow';
 
 const Users = () => {
-    const { data: users, isLoading } = useQuery('users', () => fetch('http://localhost:5000/users').then(res => res.json()));
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>
@@ -18,14 +19,12 @@ const Users = () => {
                         <tr>
                             <th>SL.</th>
                             <th>Name</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <tr>
-                                <th>{index + 1}</th>
-                                <td>{user.email}</td>
-                            </tr>)
+                            users.map((user, index) => <Userrow user={user} index={index} refetch={refetch}></Userrow>)
                         }
                     </tbody>
                 </table>
