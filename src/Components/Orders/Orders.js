@@ -47,7 +47,8 @@ const Orders = () => {
             toolQuantity: numberOne,
             toolBuyer: user.email,
             buyerName: user.displayName,
-            date: date
+            date: date,
+            price: perTool.price * numberOne,
         }
 
         fetch('http://localhost:5000/order', {
