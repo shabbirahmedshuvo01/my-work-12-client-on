@@ -20,6 +20,7 @@ import MyProfile from './Components/Dashboard/MyProfile';
 import Users from './Components/Dashboard/Users';
 import Payment from './Components/Dashboard/Payment';
 import MyProfileWork from './Components/MyProfile/MyProfileWork';
+import AddData from './Components/AddData/AddData';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/Profile' element={<MyProfileWork></MyProfileWork>}></Route>
         <Route path='/product' element={<RequireAuth><Products></Products></RequireAuth>}></Route>
+        <Route path='/addData' element={<RequireAuth><AddData></AddData></RequireAuth>}></Route>
         <Route path='/tools/:id' element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
