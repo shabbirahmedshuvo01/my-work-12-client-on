@@ -7,7 +7,7 @@ const AddData = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `https://my-final-project115.herokuapp.com/tools`;
+        const url = `https://my-work-12-server.onrender.com/tools`;
         fetch(url, {
             method: 'POST',
             headers: {
