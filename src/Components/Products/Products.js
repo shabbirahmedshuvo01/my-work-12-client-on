@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../Loading/Loading';
 import Product from './Product/Product';
 
 const Products = () => {
@@ -8,7 +9,7 @@ const Products = () => {
         fetch('https://my-work-12-server.onrender.com/tools')
             .then(res => res.json())
             .then(data => setTools(data))
-    }, [])
+    }, []);
 
     return (
         <div className='my-28'>
@@ -18,7 +19,7 @@ const Products = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5'>
                 {
-                    tools.map(tool => <Product
+                    !tools ? <Loading/> : tools.map(tool => <Product
                         key={tool._id}
                         tool={tool}
                     ></Product>)
